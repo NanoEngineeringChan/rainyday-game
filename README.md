@@ -1,2 +1,4 @@
 # rainyday-game
-2D Prototype game using Unity 
+2D Side-scroller prototype using Unity.
+
+
