@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*
  * ----------public class PlayableCharacter---------
@@ -17,12 +15,6 @@ using UnityEngine;
 
 public class PlayableCharacter : BaseCharacter
 {
-    /*    TODO:
-     *  - Add Health component
-     *  - Figure out where I want to handle abilities and UI health bars, etc.
-     *  - Add whatever else a PlayableCharacter might need
-     */
-
     // Every playable character needs access to this script    
     protected PlayerMovement m_playerMovement;
 

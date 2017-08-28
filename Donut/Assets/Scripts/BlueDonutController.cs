@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 
@@ -22,7 +20,6 @@ public class BlueDonutController : PlayableCharacter
 
     private void Start()
     {
-        Debug.Log("Start in Blue Donut called");
         base.Start();
         Initialize();
     }
@@ -40,15 +37,5 @@ public class BlueDonutController : PlayableCharacter
         }
 
         m_playerMovement.InitializePlayerMovement(m_blueDonutSpeed, m_blueDonutJump, m_blueDonutAnimator);
-    }
-
-    private void OnEnable()
-    {
-        Debug.Log("BLUE DONUT ACTIVATED");
-    }
-
-    private void OnDisable()
-    {
-        Debug.Log("BLUE DONUT DEACTIVATED");
     }
 }

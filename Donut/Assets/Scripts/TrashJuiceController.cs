@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TrashJuiceController : PlayableCharacter
 {
@@ -17,7 +15,6 @@ public class TrashJuiceController : PlayableCharacter
 
     private void Start ()
 	{
-        Debug.Log("Trash Juice Start called");
         base.Start();
         Initialize();
 	}

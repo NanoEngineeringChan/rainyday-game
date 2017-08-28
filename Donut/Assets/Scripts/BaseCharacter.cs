@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*-----------public abstract class BaseCharacter--------------
  * Holds everything that any type of character will need such
