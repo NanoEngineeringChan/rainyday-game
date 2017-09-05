@@ -25,7 +25,7 @@ public class BlueDonutController : PlayableCharacter
     {
         base.Initialize();
         CharacterName = "Donut Dog";
-        m_donutMovement.MoveSpeed = 10.0f;
+        m_donutMovement.MoveSpeed = 8.0f;
         m_donutMovement.JumpSpeed = 25.0f;
     }
 }
