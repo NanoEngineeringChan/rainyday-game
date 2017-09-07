@@ -35,7 +35,7 @@ public class ParallaxScrolling : MonoBehaviour
             m_parallaxAmounts[i] = m_backGrounds[i].position.z * -1;
         }
 
-        m_smoothingAmount = 2.5f;
+        m_smoothingAmount = 1f;
     }
 
     public void Update()
