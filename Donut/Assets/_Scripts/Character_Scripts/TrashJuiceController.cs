@@ -23,7 +23,7 @@ public class TrashJuiceController : PlayableCharacter
 
         // Initialize Movement Properties
         CharacterName = "Trash Juice";
-        m_trashMovement.MoveSpeed = 3.5f;
+        m_trashMovement.MoveSpeed = 5.5f;
         m_trashMovement.JumpSpeed = 0.0f;
     }
 }
