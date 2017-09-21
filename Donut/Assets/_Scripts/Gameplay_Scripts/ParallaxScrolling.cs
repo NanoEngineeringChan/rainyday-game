@@ -48,9 +48,11 @@ public class ParallaxScrolling : MonoBehaviour
             float backgroundTargetPosX = m_backGrounds[i].position.x + parallax;
 //            float backgroundTargetPosY = m_backGrounds[i].position.y + parallax;
 
-            Vector3 backgroundTargetPos = new Vector3(backgroundTargetPosX, m_backGrounds[i].position.y, m_backGrounds[i].position.z);
+            Vector3 backgroundTargetPos = new Vector3(backgroundTargetPosX, m_backGrounds[i].position.y,
+                                                      m_backGrounds[i].position.z);
 
-            m_backGrounds[i].position = Vector3.Lerp(m_backGrounds[i].position, backgroundTargetPos, (m_smoothingAmount * Time.deltaTime));
+            m_backGrounds[i].position = Vector3.Lerp(m_backGrounds[i].position, 
+                                                     backgroundTargetPos, (m_smoothingAmount * Time.deltaTime));
         }
 
         m_prevCameraPos = m_camera.position;
