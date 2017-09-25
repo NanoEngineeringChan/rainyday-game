@@ -6,8 +6,4 @@ public class TrashJuiceStats : CharacterStats
     {
         base.Awake();
     }
-    public void Update ()
-	{
-		
-	}
 }
