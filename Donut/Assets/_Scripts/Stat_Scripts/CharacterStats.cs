@@ -1,26 +1,65 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-
 /*
- * Base Class for a stat
+ * Generic properties for a character's stats
  */
 public class CharacterStats : MonoBehaviour
 {
-    public int m_maxHealth { get; private set; }
+    protected int m_maxHealth;
 
-    public int m_currHealth { get; private set; }
+    [SerializeField]
+    protected int m_currHealth;
 
-    private void Awake()
+    public int MaxHealth
+    {
+        get { return m_maxHealth; }
+        set { m_maxHealth = value; }
+    }
+
+    public int CurrentHealth
+    {
+        get { return m_currHealth; }
+        private set { m_currHealth = value; }
+    }
+    
+
+    public void Awake()
     {
         m_currHealth = m_maxHealth;
     }
 
-    public virtual void TakeDamage(int damageAmt)
+    public void InitializeHealth(int max)
     {
+        m_maxHealth = max;
+        m_currHealth = m_maxHealth;
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TakeDamage(10);
+        }
+    }
+
+    public void TakeDamage(int damageAmt)
+    {
+        // Don't allow the damage amount to go below zero
+        damageAmt = Mathf.Clamp(damageAmt, 0, int.MaxValue);
+
         m_currHealth -= damageAmt;
 
-        // Don't allow the current health to go below zero or above max health
-        Mathf.Clamp(m_currHealth, 0, m_maxHealth);
+        Debug.Log(transform.name + "takes " + damageAmt + " damage");
+
+        if (m_currHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public virtual void Die()
+    {
+        // Play character's death animations, and respawn, etc....
     }
 }

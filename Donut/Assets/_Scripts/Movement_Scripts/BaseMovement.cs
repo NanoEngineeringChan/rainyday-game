@@ -63,6 +63,12 @@ public abstract class BaseMovement : MonoBehaviour
     {
     }
 
+    public void InitializeMovement(float moveSpeed, float jumpSpeed)
+    {
+        m_moveSpeed = moveSpeed;
+        m_jumpSpeed = jumpSpeed;
+    }
+
     public virtual void Start()
     {
         // Get the rigidbody
