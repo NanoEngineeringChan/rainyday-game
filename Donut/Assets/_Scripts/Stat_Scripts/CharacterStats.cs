@@ -41,6 +41,10 @@ public class CharacterStats : MonoBehaviour
         {
             TakeDamage(10);
         }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestoreHealth(10);
+        }
     }
 
     public void TakeDamage(int damageAmt)
@@ -54,7 +58,19 @@ public class CharacterStats : MonoBehaviour
 
         if (m_currHealth <= 0)
         {
+            m_currHealth = Mathf.Clamp(m_currHealth, 0, m_maxHealth);
+
             Die();
+        }
+    }
+
+    public void RestoreHealth(int healAmount)
+    {
+        m_currHealth += healAmount;
+
+        if (m_currHealth > m_maxHealth)
+        {
+            m_currHealth = m_maxHealth;
         }
     }
 
