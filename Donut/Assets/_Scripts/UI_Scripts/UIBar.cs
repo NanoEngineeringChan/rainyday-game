@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class UIBar : MonoBehaviour 
 {
     [SerializeField]
-    protected Image m_barImage;
+    protected  Image m_barImage;
 
     /* The amount to fill up a bar
      * always a value between 0 & 1 
@@ -24,19 +24,24 @@ public class UIBar : MonoBehaviour
     [SerializeField]
     private float m_lerpSpeed = 5.5f;
 
+    [SerializeField]
     protected Color m_barColor;
+
+    public void Start()
+    {
+//        m_barColor = m_barImage.color;
+    }
 
     /*
      * Update the bar's fill amount 
      */
-    public void UpdateBar(float currVal, float maxVal)
+    public virtual void UpdateBar(float currVal, float maxVal)
     {
         m_currentValue = currVal;
         m_maximumValue = maxVal;
 
         // Get the % to fill the bar
         m_fillAmount = m_currentValue / m_maximumValue;
-//        m_fillAmount = Mathf.Round(m_fillAmount * 10f) / 10f;
 
         // Make sure value doesn't go below 0 or above 1
         if (m_fillAmount <= 0f)
@@ -49,6 +54,7 @@ public class UIBar : MonoBehaviour
             m_fillAmount = 1f;
         }
 
+        // Smoothly fill the bar from the old fill amount to the new one
         m_barImage.fillAmount = Mathf.Lerp(m_barImage.fillAmount, m_fillAmount, Time.deltaTime * m_lerpSpeed);
     }
 }
