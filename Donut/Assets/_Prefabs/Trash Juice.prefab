@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4384600615133504}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,9 @@ GameObject:
   - component: {fileID: 60155619551476366}
   - component: {fileID: 114201246687609796}
   - component: {fileID: 114412246840110706}
-  m_Layer: 8
+  - component: {fileID: 114969361284133570}
+  - component: {fileID: 114334563795664188}
+  m_Layer: 9
   m_Name: Trash Juice
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -53,9 +55,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630991145528938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.518, y: -0.412, z: 3}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.35, y: -2.14, z: 5}
+  m_LocalScale: {x: 0.5131064, y: 0.48745123, z: 0.5131064}
   m_Children:
   - {fileID: 4384600615133504}
   m_Father: {fileID: 0}
@@ -68,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619536433375896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.93, z: 0}
+  m_LocalPosition: {x: 0, y: -1.93, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4348504181488048}
@@ -161,6 +163,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterName: 
   m_characterAnim: {fileID: 0}
+--- !u!114 &114334563795664188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630991145528938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2599441da2f4548a598e18c0efc2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_barImage: {fileID: 0}
+  m_fillAmount: 0
+  m_lerpSpeed: 5.5
+  m_barColor: {r: 0, g: 1, b: 0.0068967342, a: 0}
 --- !u!114 &114412246840110706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +197,18 @@ MonoBehaviour:
   m_moveSpeed: 0
   m_jumpSpeed: 0
   m_player: {fileID: 0}
+--- !u!114 &114969361284133570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630991145528938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e8df864e14e16429f4713998e0e6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_currHealth: 0
 --- !u!212 &212035474587153234
 SpriteRenderer:
   m_ObjectHideFlags: 1

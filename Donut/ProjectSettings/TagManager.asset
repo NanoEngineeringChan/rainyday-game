@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Mountain
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - Player
   - Ground
+  - Player
   - Backgrounds
   - 
   - 
@@ -43,12 +44,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backgrounds
+    uniqueID: 2306500667
+    locked: 0
   - name: Ground
     uniqueID: 216029321
     locked: 0
   - name: Player
     uniqueID: 4104268707
     locked: 0
-  - name: Backgrounds
-    uniqueID: 2306500667
+  - name: Foreground
+    uniqueID: 3421471895
     locked: 0

@@ -4,7 +4,7 @@ public class TrashJuiceController : PlayableCharacter
 {
     private TrashJuiceMovement m_trashMovement;
     private CharacterStats m_trashJuiceStats;
-    private UIBar m_trashJuiceHealthBar;
+    private HealthBar m_trashJuiceHealthBar;
 
     private new void Awake()
     {
@@ -12,7 +12,9 @@ public class TrashJuiceController : PlayableCharacter
 
         m_trashMovement       = GetComponent<TrashJuiceMovement>();
         m_trashJuiceStats     = GetComponent<CharacterStats>();
-        m_trashJuiceHealthBar = GetComponent<UIBar>();
+        m_trashJuiceHealthBar = GetComponent<HealthBar>();
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, 5f);
     }
 
     private new void Start ()
@@ -25,7 +27,10 @@ public class TrashJuiceController : PlayableCharacter
 
     public void Update()
     {
-        m_trashJuiceHealthBar.UpdateBar(m_trashJuiceStats.CurrentHealth, m_trashJuiceStats.MaxHealth);
+        if (this != null)
+        {
+            m_trashJuiceHealthBar.UpdateBar(m_trashJuiceStats.CurrentHealth, m_trashJuiceStats.MaxHealth);
+        }
     }
 
     protected override void Initialize()

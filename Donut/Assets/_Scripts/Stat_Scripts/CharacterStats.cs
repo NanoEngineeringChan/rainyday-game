@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 [System.Serializable]
 /*
@@ -39,11 +40,11 @@ public class CharacterStats : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage(10);
+            TakeDamage(30);
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            RestoreHealth(10);
+            RestoreHealth(20);
         }
     }
 
@@ -54,13 +55,13 @@ public class CharacterStats : MonoBehaviour
 
         m_currHealth -= damageAmt;
 
-        Debug.Log(transform.name + "takes " + damageAmt + " damage");
+        Debug.Log(transform.name + " takes " + damageAmt + " damage");
 
         if (m_currHealth <= 0)
         {
             m_currHealth = Mathf.Clamp(m_currHealth, 0, m_maxHealth);
 
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -74,8 +75,11 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    public virtual IEnumerator Die()
     {
         // Play character's death animations, and respawn, etc....
+
+        yield return new WaitForSeconds(0.001f);
+        Debug.Log(transform.name + " has died. ");
     }
 }
