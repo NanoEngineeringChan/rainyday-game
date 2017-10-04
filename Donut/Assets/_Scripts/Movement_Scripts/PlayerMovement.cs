@@ -10,6 +10,8 @@ public class PlayerMovement : BaseMovement
     [SerializeField]
     protected PlayableCharacter m_player;
 
+    private Vector3 m_position;
+
     public new void Awake()
     {
         base.Awake();
@@ -34,6 +36,8 @@ public class PlayerMovement : BaseMovement
 
     protected override void Move()
     {
+        LockZPosition();
+
         if ( (Input.GetKey(KeyCode.A)) || (Input.GetKey(KeyCode.LeftArrow) ))
         {
             // Make sure character is facing to the left
@@ -65,5 +69,14 @@ public class PlayerMovement : BaseMovement
         {
             m_player.CharacterAnim.SetBool("IsMoving", false);
         }
+    }
+
+    private void LockZPosition()
+    {
+        // Locks the player's Z position
+        // The Z position keeps getting set to zero on start for some reason
+        m_position = transform.position;
+        m_position.z = 5f;
+        transform.position = m_position;
     }
 }
