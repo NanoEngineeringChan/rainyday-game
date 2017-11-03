@@ -40,6 +40,8 @@ GameObject:
   - component: {fileID: 95335957065331812}
   - component: {fileID: 114038240858455764}
   - component: {fileID: 114852454052082104}
+  - component: {fileID: 114978129180899814}
+  - component: {fileID: 114881798658112866}
   m_Layer: 8
   m_Name: BlueDonut
   m_TagString: Player
@@ -54,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748520128797054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.93, z: 0}
+  m_LocalPosition: {x: 0, y: -1.93, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4542645559902778}
@@ -67,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1884564130488256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.81, y: -0.101, z: 3}
-  m_LocalScale: {x: 0.4235, y: 0.42350006, z: 0.42350006}
+  m_LocalPosition: {x: -0.4, y: 4.21, z: 5}
+  m_LocalScale: {x: 0.2859527, y: 0.28595275, z: 0}
   m_Children:
   - {fileID: 4100915987598724}
   m_Father: {fileID: 0}
@@ -86,9 +88,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -136,8 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062f26422b220e34f87fc893a2f88916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_characterName: 
-  m_characterAnim: {fileID: 0}
+  _characterName: Donut Dog
+  _characterAnim: {fileID: 95335957065331812}
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &114852454052082104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,14 +152,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addb7c4b81b699245b18b847611c5978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_groundCheck: {fileID: 4100915987598724}
-  m_whatIsGround:
+  _groundCheck: {fileID: 4100915987598724}
+  _whatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  m_groundRadius: 0
-  m_moveSpeed: 0
-  m_jumpSpeed: 0
-  m_player: {fileID: 0}
+  _groundRadius: 0.3
+  _moveSpeed: 10
+  _jumpSpeed: 8
+  _facingRight: 1
+  _currentCharacter: {fileID: 0}
+--- !u!114 &114881798658112866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884564130488256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e8df864e14e16429f4713998e0e6c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currHealth: 0
+--- !u!114 &114978129180899814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884564130488256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2599441da2f4548a598e18c0efc2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barImage: {fileID: 0}
+  _fillAmount: 0
+  _lerpSpeed: 5.5
+  _barColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &212719883320926534
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -188,7 +219,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -190698589
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300002, guid: 43caaa97b563bb8478e9c581e86a0820, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43caaa97b563bb8478e9c581e86a0820, type: 3}
   m_Color: {r: 0.3192207, g: 0.6582886, b: 0.834, a: 1}
   m_FlipX: 0
   m_FlipY: 0

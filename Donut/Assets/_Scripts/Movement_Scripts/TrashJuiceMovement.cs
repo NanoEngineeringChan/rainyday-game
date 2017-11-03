@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TrashJuiceMovement : PlayerMovement
 {
-	public override void Start ()
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
+    public override void Start ()
 	{
         base.Start();
 	}

@@ -4,41 +4,41 @@ using UnityEngine;
 
 public class CharacterSwitch : MonoBehaviour 
 {
-    private int m_currentCharacter = 0;
-    private int m_previousCharacter = 0;
+    private int _currentCharacter = 0;
+    private int _previousCharacter = 0;
 
     [SerializeField]
-    private List<GameObject> m_currentParty;
+    private List<GameObject> _currentParty;
 
 	private void Start ()
 	{
-        m_currentParty = new List<GameObject>(transform.childCount);
+        _currentParty = new List<GameObject>(transform.childCount);
 
         FillCurrentPartyList();
 
-        SwitchCharacter();
+//        SwitchCharacter();
 	}
 
     private void Update()
     { 
-        m_previousCharacter = m_currentCharacter;
+        _previousCharacter = _currentCharacter;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            m_currentCharacter = 0;
+            _currentCharacter = 0;
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha2) && (transform.childCount >= 2 ))
         {
-            m_currentCharacter = 1;
+            _currentCharacter = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3) && (transform.childCount >= 3))
         {
-            m_currentCharacter = 2;
+            _currentCharacter = 2;
         }
 
-        if (m_previousCharacter != m_currentCharacter)
+        if (_previousCharacter != _currentCharacter)
         {
             SwitchCharacter();
         }
@@ -50,7 +50,7 @@ public class CharacterSwitch : MonoBehaviour
 
         foreach (Transform characters in this.transform)
         {
-            m_currentParty.Add(characters.gameObject);
+            _currentParty.Add(characters.gameObject);
 
             i++;
         }
@@ -67,38 +67,38 @@ public class CharacterSwitch : MonoBehaviour
 
         int i = 0;
 
-        Vector2 previousCharacterPos = m_currentParty[m_previousCharacter].transform.position;
-        Vector2 previousCharacterScale = m_currentParty[m_previousCharacter].transform.localScale;
-        bool previousFacingRight = m_currentParty[m_previousCharacter].GetComponent<PlayerMovement>().FacingRight;
+        Vector2 previousCharacterPos = _currentParty[_previousCharacter].transform.position;
+        Vector2 previousCharacterScale = _currentParty[_previousCharacter].transform.localScale;
+        bool previousFacingRight = _currentParty[_previousCharacter].GetComponent<PlayerMovement>().FacingRight;
 
 
-        Debug.Log("PREVIOUS CHARACTER: " + m_previousCharacter);
-        Debug.Log("NEW CHARACTER: " + m_currentCharacter);
+        Debug.Log("PREVIOUS CHARACTER: " + _previousCharacter);
+        Debug.Log("NEW CHARACTER: " + _currentCharacter);
 
-        foreach (GameObject characters in m_currentParty)
+        foreach (GameObject characters in _currentParty)
         {
-            if (i == m_currentCharacter)
+            if (i == _currentCharacter)
             {
                 // Update the position of the new character
-                m_currentParty[i].transform.position = previousCharacterPos;
+                _currentParty[i].transform.position = previousCharacterPos;
 
                 // Face the new character in the same direction as the previous one
-                if(m_currentParty[i].transform.localScale.x != previousCharacterScale.x)
+                if(_currentParty[i].transform.localScale.x != previousCharacterScale.x)
                 {
                     Debug.Log("PREVIOUS CHARACTER WAS FACING IN DIFFERENT DIRECTION");
 
-                    m_currentParty[i].transform.localScale = previousCharacterScale;
+                    _currentParty[i].transform.localScale = previousCharacterScale;
 
-                    m_currentParty[i].GetComponent<PlayerMovement>().FacingRight = previousFacingRight;
+                    _currentParty[i].GetComponent<PlayerMovement>().FacingRight = previousFacingRight;
                 }
 
                 // Activate the new character
-                m_currentParty[i].gameObject.SetActive(true);
+                _currentParty[i].gameObject.SetActive(true);
 
             }
             else
             {
-                m_currentParty[i].gameObject.SetActive(false);
+                _currentParty[i].gameObject.SetActive(false);
             }
 
             i++;

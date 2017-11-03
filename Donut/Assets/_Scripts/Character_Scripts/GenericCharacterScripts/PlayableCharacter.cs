@@ -21,7 +21,6 @@ public class PlayableCharacter : BaseCharacter
 
     public void Start()
     {
-        Debug.Log("Calling Start in PlayableCharacter");
     }
 
     protected override void Initialize()
