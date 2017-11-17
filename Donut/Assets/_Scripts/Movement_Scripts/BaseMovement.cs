@@ -11,53 +11,55 @@
 [System.Serializable]
 public abstract class BaseMovement : MonoBehaviour
 {
-    protected Rigidbody2D m_rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     // Info to check if character is on the ground
     // Required for jumping mechanics
     [SerializeField]
-    protected Transform m_groundCheck;
+    protected Transform _groundCheck;
 
     [SerializeField]
-    protected LayerMask m_whatIsGround;
+    protected LayerMask _whatIsGround;
 
     [SerializeField]
-    protected float m_groundRadius;
+    protected float _groundRadius;
 
-    protected bool m_isGrounded;
-
-    [SerializeField]
-    protected float m_moveSpeed;
+    protected bool _isGrounded;
 
     [SerializeField]
-    protected float m_jumpSpeed;
+    protected float _moveSpeed;
+
+    [SerializeField]
+    protected float _jumpSpeed;
+
 
     // Used to flip character sprite based on which way it's moving
-    private bool m_facingRight;
+    [SerializeField]
+    private bool _facingRight;
 
     public bool FacingRight
     {
-        set { m_facingRight = value; }
-        get { return m_facingRight; }
+        set { _facingRight = value; }
+        get { return _facingRight; }
     }
 
     public float MoveSpeed
     {
-        set { m_moveSpeed = value; }
-        get { return m_moveSpeed; }
+        set { _moveSpeed = value; }
+        get { return _moveSpeed; }
     }
 
     public float JumpSpeed
     {
-        set { m_jumpSpeed = value; }
-        get { return m_jumpSpeed; }
+        set { _jumpSpeed = value; }
+        get { return _jumpSpeed; }
     }
 
-    public void Awake()
+    public virtual void Awake()
     {
-        // Always start characters facing right
-        m_facingRight = true;
+//        FacingRight = true;
     }
+
 
     public virtual void Update()
     {
@@ -65,17 +67,17 @@ public abstract class BaseMovement : MonoBehaviour
 
     public void InitializeMovement(float moveSpeed, float jumpSpeed)
     {
-        m_moveSpeed = moveSpeed;
-        m_jumpSpeed = jumpSpeed;
+        _moveSpeed = moveSpeed;
+        _jumpSpeed = jumpSpeed;
     }
 
     public virtual void Start()
     {
         // Get the rigidbody
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
 
         // Set radius for the ground
-        m_groundRadius = 0.3f;
+        _groundRadius = 0.3f;
     }
 
     public void FixedUpdate()
@@ -93,7 +95,7 @@ public abstract class BaseMovement : MonoBehaviour
 
     public void ChangeCharacterDirection()
     {
-        m_facingRight = !m_facingRight;
+        FacingRight = !FacingRight;
 
         Vector2 characterScale = transform.localScale;
 
@@ -104,13 +106,13 @@ public abstract class BaseMovement : MonoBehaviour
 
     /*
      *  -----------------------private void CheckIsGrounded()------------------
-     *  Sets m_isGrounded based on if the player's collider is colliding with the
+     *  Sets _isGrounded based on if the player's collider is colliding with the
      *  ground check transform. 
      *  -----------------------------------------------------------------------
      */
     private  void CheckIfGrounded()
     {
-        m_isGrounded = Physics2D.OverlapCircle(m_groundCheck.position, m_groundRadius, m_whatIsGround);
+        _isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, _whatIsGround);
     }
 
     // Each character will have its own move function

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4384600615133504}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,13 +42,13 @@ GameObject:
   - component: {fileID: 114412246840110706}
   - component: {fileID: 114969361284133570}
   - component: {fileID: 114334563795664188}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Trash Juice
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4348504181488048
 Transform:
   m_ObjectHideFlags: 1
@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1630991145528938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.35, y: -2.14, z: 5}
-  m_LocalScale: {x: 0.5131064, y: 0.48745123, z: 0.5131064}
+  m_LocalPosition: {x: 9.35, y: -2, z: 5}
+  m_LocalScale: {x: 0.44755322, y: 0.4251754, z: 0.44755292}
   m_Children:
   - {fileID: 4384600615133504}
   m_Father: {fileID: 0}
@@ -88,14 +88,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!60 &60155619551476366
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e3e3c8ed7d5be4a8d61cff72b60d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_characterName: 
-  m_characterAnim: {fileID: 0}
+  _characterName: 
+  _characterAnim: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
 --- !u!114 &114334563795664188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,10 +175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2599441da2f4548a598e18c0efc2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_barImage: {fileID: 0}
-  m_fillAmount: 0
-  m_lerpSpeed: 5.5
-  m_barColor: {r: 0, g: 1, b: 0.0068967342, a: 0}
+  _barImage: {fileID: 0}
+  _fillAmount: 0
+  _lerpSpeed: 5.5
+  _barColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114412246840110706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,14 +190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482e36f51174adb46b732c32ff3e4e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_groundCheck: {fileID: 4384600615133504}
-  m_whatIsGround:
+  _groundCheck: {fileID: 4384600615133504}
+  _whatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  m_groundRadius: 0
-  m_moveSpeed: 0
-  m_jumpSpeed: 0
-  m_player: {fileID: 0}
+  _groundRadius: 0
+  _moveSpeed: 0
+  _jumpSpeed: 0
+  _facingRight: 1
+  _currentCharacter: {fileID: 0}
 --- !u!114 &114969361284133570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e8df864e14e16429f4713998e0e6c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currHealth: 0
+  _currHealth: 0
 --- !u!212 &212035474587153234
 SpriteRenderer:
   m_ObjectHideFlags: 1

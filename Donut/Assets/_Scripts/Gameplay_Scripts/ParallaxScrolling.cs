@@ -5,56 +5,56 @@ using UnityEngine;
 public class ParallaxScrolling : MonoBehaviour
 {
     [SerializeField]
-    private Transform[] m_backGrounds;
+    private Transform[] _backGrounds;
 
     // How much we want each background to move
     [SerializeField]
-    private float[] m_parallaxAmounts;
+    private float[] _parallaxAmounts;
 
     [SerializeField]
-    private float m_smoothingAmount;
+    private float _smoothingAmount;
 
 
-    private Transform m_camera;
-    private Vector3 m_prevCameraPos;
+    private Transform _camera;
+    private Vector3 _prevCameraPos;
 
     public void Awake()
     {
-        m_camera = Camera.main.transform;
+        _camera = Camera.main.transform;
     }
 
     public void Start()
     {
-        m_prevCameraPos = m_camera.position;
+        _prevCameraPos = _camera.position;
 
         // Set the size of the parallax array
-        m_parallaxAmounts = new float[m_backGrounds.Length];
+        _parallaxAmounts = new float[_backGrounds.Length];
 
-        for (int i = 0; i < m_parallaxAmounts.Length; i++)
+        for (int i = 0; i < _parallaxAmounts.Length; i++)
         {
-            m_parallaxAmounts[i] = m_backGrounds[i].position.z * -1;
+            _parallaxAmounts[i] = _backGrounds[i].position.z * -1;
         }
 
-        m_smoothingAmount = 2f;
+        _smoothingAmount = 2f;
     }
 
     public void Update()
     {
-        for (int i = 0; i < m_backGrounds.Length; i++)
+        for (int i = 0; i < _backGrounds.Length; i++)
         {
-            float parallax = (m_prevCameraPos.x - transform.position.x) *
-                               (m_parallaxAmounts[i] / m_smoothingAmount);
+            float parallax = (_prevCameraPos.x - transform.position.x) *
+                               (_parallaxAmounts[i] / _smoothingAmount);
 
-            float backgroundTargetPosX = m_backGrounds[i].position.x + parallax;
-//            float backgroundTargetPosY = m_backGrounds[i].position.y + parallax;
+            float backgroundTargetPosX = _backGrounds[i].position.x + parallax;
+//            float backgroundTargetPosY = _backGrounds[i].position.y + parallax;
 
-            Vector3 backgroundTargetPos = new Vector3(backgroundTargetPosX, m_backGrounds[i].position.y,
-                                                      m_backGrounds[i].position.z);
+            Vector3 backgroundTargetPos = new Vector3(backgroundTargetPosX, _backGrounds[i].position.y,
+                                                      _backGrounds[i].position.z);
 
-            m_backGrounds[i].position = Vector3.Lerp(m_backGrounds[i].position, 
-                                                     backgroundTargetPos, (m_smoothingAmount * Time.deltaTime));
+            _backGrounds[i].position = Vector3.Lerp(_backGrounds[i].position, 
+                                                     backgroundTargetPos, (_smoothingAmount * Time.deltaTime));
         }
 
-        m_prevCameraPos = m_camera.position;
+        _prevCameraPos = _camera.position;
     }
 }

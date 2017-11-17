@@ -12,23 +12,26 @@
 public class BaseCharacter : MonoBehaviour
 {
     [SerializeField]
-    private string m_characterName;
+    private string _characterName;
 
     // Each character will have its own AnimatorController that will 
     // be held in this variable
     [SerializeField]
-    protected Animator m_characterAnim; 
+    protected Animator _characterAnim;
+
+    [SerializeField]
+    protected SpriteRenderer _spriteRenderer;
 
     public string CharacterName
     {
-        get { return m_characterName; }
-        set { m_characterName = value; }
+        get { return _characterName; }
+        set { _characterName = value; }
     }
 
     public Animator CharacterAnim
     {
-        get { return m_characterAnim; }
-        set { m_characterAnim = value; }
+        get { return _characterAnim; }
+        set { _characterAnim = value; }
     }
 
     protected virtual void Initialize()

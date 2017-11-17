@@ -7,6 +7,12 @@ using UnityEngine;
  */
 public class DonutMovement : PlayerMovement
 {
+
+    public override void Awake()
+    {
+        base.Awake();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -21,7 +27,7 @@ public class DonutMovement : PlayerMovement
     {
         base.Move();
 
-        if ( (Input.GetKeyDown(KeyCode.Space)) && (m_isGrounded) && (m_jumpSpeed > 0) )
+        if ((Input.GetKeyDown(KeyCode.Space)) && (_isGrounded) && (_jumpSpeed > 0))
         {
             StartCoroutine(Jump());
         }
@@ -29,14 +35,12 @@ public class DonutMovement : PlayerMovement
 
     public IEnumerator Jump()
     {
-        m_player.CharacterAnim.SetBool("IsJumping", true);
+        _currentCharacter.CharacterAnim.SetBool("IsJumping", true);
 
-        m_rigidbody.velocity = new Vector2(m_rigidbody.velocity.x, m_jumpSpeed);
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpSpeed);
 
         yield return new WaitForSeconds(0.1f);
 
-        m_player.CharacterAnim.SetBool("IsJumping", false);
+        _currentCharacter.CharacterAnim.SetBool("IsJumping", false);
     }
-
-
 }

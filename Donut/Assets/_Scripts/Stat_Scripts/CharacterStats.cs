@@ -7,33 +7,33 @@ using System.Collections;
  */
 public class CharacterStats : MonoBehaviour
 {
-    protected int m_maxHealth;
+    protected int _maxHealth;
 
     [SerializeField]
-    protected int m_currHealth;
+    protected int _currHealth;
 
     public int MaxHealth
     {
-        get { return m_maxHealth; }
-        set { m_maxHealth = value; }
+        get { return _maxHealth; }
+        set { _maxHealth = value; }
     }
 
     public int CurrentHealth
     {
-        get { return m_currHealth; }
-        private set { m_currHealth = value; }
+        get { return _currHealth; }
+        private set { _currHealth = value; }
     }
     
 
     public void Awake()
     {
-        m_currHealth = m_maxHealth;
+        _currHealth = _maxHealth;
     }
 
     public void InitializeHealth(int max)
     {
-        m_maxHealth = max;
-        m_currHealth = m_maxHealth;
+        _maxHealth = max;
+        _currHealth = _maxHealth;
     }
 
     public void Update()
@@ -53,13 +53,12 @@ public class CharacterStats : MonoBehaviour
         // Don't allow the damage amount to go below zero
         damageAmt = Mathf.Clamp(damageAmt, 0, int.MaxValue);
 
-        m_currHealth -= damageAmt;
+        _currHealth -= damageAmt;
 
-        Debug.Log(transform.name + " takes " + damageAmt + " damage");
 
-        if (m_currHealth <= 0)
+        if (_currHealth <= 0)
         {
-            m_currHealth = Mathf.Clamp(m_currHealth, 0, m_maxHealth);
+            _currHealth = Mathf.Clamp(_currHealth, 0, _maxHealth);
 
             StartCoroutine(Die());
         }
@@ -67,11 +66,11 @@ public class CharacterStats : MonoBehaviour
 
     public void RestoreHealth(int healAmount)
     {
-        m_currHealth += healAmount;
+        _currHealth += healAmount;
 
-        if (m_currHealth > m_maxHealth)
+        if (_currHealth > _maxHealth)
         {
-            m_currHealth = m_maxHealth;
+            _currHealth = _maxHealth;
         }
     }
 
@@ -80,6 +79,5 @@ public class CharacterStats : MonoBehaviour
         // Play character's death animations, and respawn, etc....
 
         yield return new WaitForSeconds(0.001f);
-        Debug.Log(transform.name + " has died. ");
     }
 }

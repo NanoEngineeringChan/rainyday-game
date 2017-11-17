@@ -4,13 +4,13 @@
 
 public class BlueDonutController : PlayableCharacter
 {
-    private DonutMovement m_donutMovement;
+    private DonutMovement _donutMovement;
 
     public new void Awake()
     {
         base.Awake();
 
-        m_donutMovement = GetComponent<DonutMovement>();
+        _donutMovement = GetComponent<DonutMovement>();
     }
 
 
@@ -25,7 +25,7 @@ public class BlueDonutController : PlayableCharacter
     {
         base.Initialize();
         CharacterName = "Donut Dog";
-        m_donutMovement.MoveSpeed = 8.0f;
-        m_donutMovement.JumpSpeed = 20.0f;
+        _donutMovement.MoveSpeed = 10.0f;
+        _donutMovement.JumpSpeed = 8.0f;
     }
 }

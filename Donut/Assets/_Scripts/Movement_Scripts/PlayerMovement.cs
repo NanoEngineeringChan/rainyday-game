@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 /*
  * Sets structure for generic user based movement
@@ -8,11 +9,11 @@ public class PlayerMovement : BaseMovement
 {
     // Reference to the currently active character
     [SerializeField]
-    protected PlayableCharacter m_player;
+    protected PlayableCharacter _currentCharacter;
 
-    private Vector3 m_position;
+    private Vector3 _position;
 
-    public new void Awake()
+    public override void Awake()
     {
         base.Awake();
     }
@@ -21,7 +22,7 @@ public class PlayerMovement : BaseMovement
     {
         base.Start();
 
-        m_player = FindObjectOfType<PlayableCharacter>();
+        _currentCharacter = FindObjectOfType<PlayableCharacter>();
     }
 
     public override void Update()
@@ -47,10 +48,13 @@ public class PlayerMovement : BaseMovement
             }
 
             // Move player to the left
-            m_rigidbody.velocity = new Vector2(-m_moveSpeed, m_rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(-_moveSpeed, 0f);
 
             // Play characther's walking / running animation
-            m_player.CharacterAnim.SetBool("IsMoving", true);
+            if (_currentCharacter.CharacterAnim != null)
+            {
+                _currentCharacter.CharacterAnim.SetBool("IsMoving", true);
+            }
         }
         else if ((Input.GetKey(KeyCode.D)) || (Input.GetKey(KeyCode.RightArrow) ))
         {
@@ -60,14 +64,20 @@ public class PlayerMovement : BaseMovement
                 ChangeCharacterDirection();
             }
 
-            m_rigidbody.velocity = new Vector2(m_moveSpeed, m_rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_moveSpeed, 0f);
 
             // Play character's walking / running animation
-            m_player.CharacterAnim.SetBool("IsMoving", true);
+            if (_currentCharacter.CharacterAnim != null)
+            {
+                _currentCharacter.CharacterAnim.SetBool("IsMoving", true);
+            }
         }
         else
         {
-            m_player.CharacterAnim.SetBool("IsMoving", false);
+            if (_currentCharacter.CharacterAnim != null)
+            {
+                _currentCharacter.CharacterAnim.SetBool("IsMoving", false);
+            }
         }
     }
 
@@ -75,8 +85,8 @@ public class PlayerMovement : BaseMovement
     {
         // Locks the player's Z position
         // The Z position keeps getting set to zero on start for some reason
-        m_position = transform.position;
-        m_position.z = 5f;
-        transform.position = m_position;
+        _position = transform.position;
+        _position.z = 5f;
+        transform.position = _position;
     }
 }

@@ -9,21 +9,21 @@ public class HealthBar : UIBar
 
 
         // Change the bar's color depending on the remaining health %
-        if (m_fillAmount <= 0.25f)
+        if (_fillAmount <= 0.25f)
         {
-            m_barColor = Color.red;
-            m_barImage.color = m_barColor;
+            _barColor = Color.red;
+            _barImage.color = _barColor;
         }
-        else if (m_fillAmount <= 0.50f)
+        else if (_fillAmount <= 0.50f)
         {
-            m_barColor = new Color(255f, 255f, 0f);
-            m_barImage.color = m_barColor;
+            _barColor = new Color(255f, 255f, 0f);
+            _barImage.color = _barColor;
         }
-        else if (m_fillAmount <= 1.0f)
+        else if (_fillAmount <= 1.0f)
         {
-            //m_barColor = new Color(0f, 255f, 128f);
-            m_barColor = Color.green;
-            m_barImage.color = m_barColor;
+            //_barColor = new Color(0f, 255f, 128f);
+            _barColor = Color.green;
+            _barImage.color = _barColor;
         }
 
 
