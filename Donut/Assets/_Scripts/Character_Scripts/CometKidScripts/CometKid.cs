@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class CometKid : PlayableCharacter
 {
-    private PlayerMovement _cometMovement;
+
+    public CometKidMovement _cometMovement { get; set; }
+
+
 
     public new void Awake()
     {
         base.Awake();
 
-        _cometMovement = GetComponent<PlayerMovement>();
+        _cometMovement = GetComponent<CometKidMovement>();
     }
 
     public new void Start()

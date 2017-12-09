@@ -1708,10 +1708,13 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -97.498
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
     - target: {fileID: 1575750189898360, guid: 722afa3979ad2874da1ae3b2ae6bd79a, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+>>>>>>> 647e47d88aa90f406d0ddb33974f52266c972a0c
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 722afa3979ad2874da1ae3b2ae6bd79a, type: 2}
   m_IsPrefabParent: 0
@@ -1798,7 +1801,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
+  m_IsActive: 1
+=======
   m_IsActive: 0
+>>>>>>> 647e47d88aa90f406d0ddb33974f52266c972a0c
 --- !u!4 &610475022
 Transform:
   m_ObjectHideFlags: 0

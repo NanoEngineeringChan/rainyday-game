@@ -24,7 +24,11 @@ public class CometKidMovement : PlayerMovement
 
         if (GetComponent<CometKid>().CharacterAnim.GetCurrentAnimatorStateInfo(0).IsName("CometKidIdle"))
         {
+<<<<<<< HEAD
+            _floatingBehavior.Float(.3f);
+=======
             //_floatingBehavior.Float(.3f);
+>>>>>>> 647e47d88aa90f406d0ddb33974f52266c972a0c
         }
     }
 

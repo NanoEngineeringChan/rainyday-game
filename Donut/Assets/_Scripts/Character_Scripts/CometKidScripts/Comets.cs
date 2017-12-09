@@ -13,6 +13,11 @@ public class Comets : MonoBehaviour
         _floatingBehavior = GetComponent<FloatingBehavior>();
     }
 
+<<<<<<< HEAD
+    private void Update()
+    {
+        CometEffects();
+=======
     private void FixedUpdate()
     {
         CometEffects();
@@ -21,12 +26,15 @@ public class Comets : MonoBehaviour
         {
             CometPunch();
         }
+>>>>>>> 647e47d88aa90f406d0ddb33974f52266c972a0c
     }
     private void CometEffects()
     {
         _floatingBehavior.Float(_floatStr);
         transform.Rotate(Vector3.forward);
     }
+<<<<<<< HEAD
+=======
 
     private void CometPunch()
     {
@@ -37,4 +45,5 @@ public class Comets : MonoBehaviour
 
         transform.position = Vector3.Lerp(currPos, targetPos, Time.deltaTime * 7.0f);
     }
+>>>>>>> 647e47d88aa90f406d0ddb33974f52266c972a0c
 }
